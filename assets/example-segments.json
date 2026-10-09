@@ -1,0 +1,17 @@
+{
+  "object": "权力的游戏（全 8 季，样例数据）",
+  "scale": 10,
+  "good": 7.0,
+  "bad": 6.0,
+  "segments": [
+    {"label": "S1", "minutes": 550, "rating": 9.1},
+    {"label": "S2", "minutes": 560, "rating": 9.2},
+    {"label": "S3", "minutes": 570, "rating": 9.3},
+    {"label": "S4", "minutes": 580, "rating": 9.3},
+    {"label": "S5", "minutes": 570, "rating": 9.0},
+    {"label": "S6", "minutes": 560, "rating": 9.0},
+    {"label": "S7", "minutes": 420, "rating": 8.5},
+    {"label": "S8", "minutes": 400, "rating": 6.4}
+  ],
+  "_note": "分钟数为按季汇总的估算值，报告中应标注 [推算]。改用单集粒度可获得更精确的崩点。"
+}
