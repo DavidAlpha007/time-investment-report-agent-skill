@@ -1,13 +1,17 @@
 ---
 name: time-investment-report
 description: >
-  为「要不要投入 10 小时以上」的决策产出一份《时间投资评估报告》：把一门课、一部长剧、
-  一本书、一份行业报告或一个播客系列的时间账，拆成可核验的结构事实——总时长与日历周期、
-  沿时间轴的结构分布、密度异常点（铺垫段 / 崩塌点 / 注水段）、时效折损、更短的替代来源、
-  以及三个选项（全量 / 取核心段 / 放弃）。核心约束是只呈现带置信度的事实、绝不给
-  「值不值得」打分，且永远保留「放弃」选项。触发场景：这门课要不要买、这部剧追不追、
-  这本书值不值得读、这份报告要不要读完、长内容避雷、追剧崩坏预警、time investment
-  report、is it worth my time、longform content verdict。
+  Agent skill: produce a Time Investment Report before committing 10+ hours to
+  a course, TV series, book, research report, podcast series or paid community.
+  Breaks the time cost into seven grids of checkable structural facts: total
+  length and calendar span, structure along the timeline, density anomalies
+  (setup stretches / collapse point / filler), time decay, shorter substitutes,
+  and three options (all in / core only / walk away). Hard constraints: present
+  only facts with confidence labels, never score "is it worth it", always keep
+  the walk-away option. Triggers on: 这门课要不要买、这部剧追不追、这本书值不值得读、
+  这份报告要不要读完、长内容避雷、追剧崩坏预警、time investment report、is it worth
+  my time、should I commit to this course、longform content verdict.
+  Docs: README.en.md (English) / README.md (中文) / ABOUT.md (about this skill).
 allowed-tools:
   - Read
   - Write
@@ -17,14 +21,30 @@ allowed-tools:
   - WebSearch
   - WebFetch
 metadata:
-  displayName: 时间投资评估报告
-  version: 0.1.0
+  displayName: 时间投资评估报告 · Time Investment Report
+  displayNameEn: Time Investment Report
+  category: agent-skill
+  version: 0.1.1
+  languages: zh-CN, en
 agent_created: true
 ---
 
-# 时间投资评估报告
+# 时间投资评估报告 · Time Investment Report
 
 把「要不要投入时间」从一个感觉问题，变成一笔可核验的账。
+Turn "should I spend my time on this?" from a gut feeling into a checkable ledger.
+
+> **This is an Agent Skill**, not a library. Install by copying this folder into
+> your agent's skills directory (`~/.workbuddy/skills/` for WorkBuddy/CodeBuddy,
+> `~/.claude/skills/` for Claude Code). See [ABOUT.md](ABOUT.md) and
+> [README.en.md](README.en.md).
+>
+> **这是一个给 Agent 用的技能包**，不是代码库。把整个目录复制到 agent 的 skills
+> 目录即可使用。英文说明见 `README.en.md`，技能简介见 `ABOUT.md`。
+
+**输出语言**：跟随用户提问语言。用户用英文提问时，用 `assets/report-template.en.md`
+作为模板，报告正文、三个选项与诚实声明均用英文；用户用中文提问时用
+`assets/report-template.md`。方法文档（`references/`）目前仅有中文版，agent 可直接阅读理解。
 
 ## 定位与边界
 

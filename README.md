@@ -1,6 +1,12 @@
-# 时间投资评估报告 · Time Investment Report
+# 时间投资评估报告 · Time Investment Report — an Agent Skill
 
+> [English](README.en.md) ｜ 中文 ｜ [About this skill](ABOUT.md)
+>
 > 把「要不要投入时间」从一个感觉问题，变成一笔可核验的账。
+
+**这是一个 Agent Skill（给 AI Agent 用的技能包），不是代码库、不是 App。**
+把它整个目录放进 agent 的 skills 目录，agent 就会在你说「我在犹豫要不要……」时
+自动加载它，产出一份报告。没有服务器、没有构建步骤、不需要 API key。
 
 一门课 95 小时、一部长剧 70 小时、一本书 576 页——这些**高度不可逆**的时间投入，
 大多数人靠「豆瓣评分 8.8」或朋友一句话就做了决定。
@@ -40,14 +46,19 @@
 
 ### 安装（作为 Agent Skill）
 
-复制到你的 skills 目录：
+它是一个**文件夹**，整体复制到 agent 的 skills 目录即可：
 
 ```bash
-# WorkBuddy / CodeBuddy
-cp -r time-investment-report ~/.workbuddy/skills/
+git clone https://github.com/DavidAlpha007/time-investment-report-agent-skill.git
 
-# 或 Claude Code
-cp -r time-investment-report ~/.claude/skills/
+# WorkBuddy / CodeBuddy
+cp -r time-investment-report-agent-skill ~/.workbuddy/skills/time-investment-report
+
+# Claude Code
+cp -r time-investment-report-agent-skill ~/.claude/skills/time-investment-report
+
+# Codex
+cp -r time-investment-report-agent-skill ~/.codex/skills/time-investment-report
 ```
 
 然后对 agent 说：
@@ -133,21 +144,28 @@ python3 scripts/tir.py scaffold --title "..." --type course
 
 ```
 time-investment-report/
-├── SKILL.md                    # Agent 入口：工作流、铁律、边界
-├── README.md                   # 本文件
+├── SKILL.md                    # Agent 入口：工作流、四条红线、启用与拒绝边界
+├── README.md                   # 本文件（中文）
+├── README.en.md                # English README
+├── ABOUT.md                    # 技能简介（英文）：这是什么、给谁用、怎么装
 ├── LICENSE                     # MIT
 ├── scripts/
-│   └── tir.py                  # 确定性计算器（纯标准库）
+│   └── tir.py                  # 确定性计算器（纯标准库，timeline / budget / scaffold）
 ├── references/
-│   ├── methodology.md          # 净收益模型、分布优于均值、峰终效应、时效分级
+│   ├── methodology.md          # 净收益模型、分布优于均值、粒度决定精度、峰终效应、时效分级
 │   ├── playbook.md             # 10 步手动流程 + 各类型取数清单 + 定价与 Go/No-Go
 │   ├── redlines.md             # 四条红线、置信度四级规范、诚实声明模板、自查清单
 │   └── examples.md             # 三份样例的方法要点对照
 └── assets/
-    ├── report-template.md      # Markdown 报告模板
+    ├── report-template.md      # Markdown 报告模板（中文）
+    ├── report-template.en.md   # Markdown 报告模板（英文）
     ├── report-template.html    # HTML 报告模板（自带样式，可直接打印为 PDF）
     └── example-segments.json   # timeline 的输入样例（权力的游戏，按季粒度）
 ```
+
+> **语言覆盖（v0.1.1）**：SKILL.md 入口、两份 README、ABOUT 与报告模板均为中英双语；
+> `references/` 四份方法文档目前只有中文版（agent 可直接阅读理解，欢迎 PR 补英文）。
+> 用户用英文提问时，agent 应改用 `assets/report-template.en.md` 出报告。
 
 ---
 
